@@ -15,7 +15,7 @@ TextField name;
 TextField year;
 TextField month;
 TextField day;
-
+TextField time;
 
 
 Label items;
@@ -24,7 +24,6 @@ Checkbox paintbrush;
 Checkbox scissor;//scissors and exacto knives
 
 Button submit;
-
 
 Checkbox in;
 Checkbox out;
@@ -61,15 +60,19 @@ Font font1 = new Font("SansSerif",Font.PLAIN,10);
 
   year = new TextField("Year");
   add(year);
-  year.setBounds(70,180,100,50);
+  year.setBounds(15,180,100,50);
 
   month = new TextField("Month");
   add(month);
-  month.setBounds(190,180,100,50);
+  month.setBounds(135,180,100,50);
 
   day = new TextField("Day");
   add(day);
-  day.setBounds(310,180,100,50);
+  day.setBounds(255,180,100,50);
+
+  time = new TextField("Time");
+  add(time);
+  time.setBounds(375,180,100,50);
 
 //Items being used
   items = new Label("    Items:");
@@ -137,53 +140,53 @@ Font font1 = new Font("SansSerif",Font.PLAIN,10);
 //signin
 if(in.getState()){
   if(markers.getState()){
-    StrIn.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers");
+    StrIn.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers");
     if(paintbrush.getState()){
       StrIn.delete(0,100);
-      StrIn.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and paintbrushes");//markers and paintbrushes
+      StrIn.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and paintbrushes");//markers and paintbrushes
       if(scissor.getState()){
         StrIn.delete(0,100);
-        StrIn.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers, paintbrushes and scissors");//all three
+        StrIn.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers, paintbrushes and scissors");//all three
       }
     }else if(scissor.getState()){
       StrIn.delete(0,100);
-      StrIn.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and scissors");
+      StrIn.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and scissors");
     }
 
   }else if(paintbrush.getState()){
-    StrIn.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes");
+    StrIn.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes");
     if(scissor.getState()){
       StrIn.delete(0,100);
-      StrIn.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes and scissors");
+      StrIn.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes and scissors");
     }
 
   }else{
-    StrIn.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == scissors");
+    StrIn.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == scissors");
   }
 
 //signout
 }else if(out.getState()){
   if(markers.getState()){
-    StrOut.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers");
+    StrOut.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers");
     if(paintbrush.getState()){
       StrOut.delete(0,100);
-      StrOut.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and paintbrushes");//markers and paintbrushes
+      StrOut.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and paintbrushes");//markers and paintbrushes
       if(scissor.getState()){
         StrOut.delete(0,100);
-        StrOut.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers, paintbrushes and scissors");//all three
+        StrOut.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers, paintbrushes and scissors");//all three
       }
     }else if(scissor.getState()){
       StrOut.delete(0,100);
-      StrOut.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and scissors");
+      StrOut.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == markers and scissors");
     }
   }else if(paintbrush.getState()){
-    StrOut.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes");
+    StrOut.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes");
     if(scissor.getState()){
       StrOut.delete(0,100);
-      StrOut.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes and scissors");
+      StrOut.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == paintbrushes and scissors");
     }
   }else{
-    StrOut.append(month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == scissors");
+    StrOut.append(time.getText()+" "+month.getText()+"/"+day.getText()+"/"+year.getText()+" == "+name.getText()+" == scissors");
   }
 
 }

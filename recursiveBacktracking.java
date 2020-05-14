@@ -25,7 +25,7 @@ if(a[start]==sum){//if the element is the wanted sum return true
   return true;
 }
 //rest of the problem
-// || = or -- works similarly to what we did earlier in the year -- or == 1 or both is true
+// || = or -- works similarly to what we did earlier in the year -- or = 1 or both is true
 //can't use if statements or "missing return statement"
 //including or excluding the last element, if either are true then it is true
 return groupSum(start+1,a,sum-a[start])||groupSum(start+1,a,sum);

@@ -24,12 +24,13 @@ if(start>a.length-1){//if the index is greater than the length (-1 because index
 if(a[start]==sum){//if the element is the wanted sum return true
   return true;
 }
+else{
 //rest of the problem
 // || = or -- works similarly to what we did earlier in the year -- or = 1 or both is true
 //can't use if statements or "missing return statement"
 //including or excluding the last element, if either are true then it is true
 return groupSum(start+1,a,sum-a[start])||groupSum(start+1,a,sum);
-
+}
 
 
 }
@@ -42,7 +43,7 @@ public static void main(String[] args) {
   recursiveBacktracking r = new recursiveBacktracking();
 
   int start = 0;
-  int[] a = {1,2,3};
+  int[] a = {1,2,4};
   int sum = 7;
 
   System.out.println(r.groupSum(start,a,sum));

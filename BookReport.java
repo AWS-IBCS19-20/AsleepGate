@@ -22,7 +22,7 @@ public static void main(String[] args) {
 
     while(fr.hasNext()){
       text.add(fr.next());//Arraylist
-      text2.append(fr2.next().toLowerCase()+"\n");//Stringbuilder -- one word per line
+      text2.append(fr2.next());//Stringbuilder 
       }
     }
 

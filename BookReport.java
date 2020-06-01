@@ -59,7 +59,7 @@ public static void main(String[] args) {
                    count++;
                }
            }
-           if(count > amount){//if the amount is less than count then store value of count in maxCount
+           if(count > amount){//if the amount is less than count then store value of count in amount
                amount = count;
                letter = text2.charAt(c);
            }

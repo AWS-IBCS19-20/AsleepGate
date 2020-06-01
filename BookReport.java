@@ -6,10 +6,11 @@ class BookReport{
 
 public static void main(String[] args) {
 
-  ArrayList<String> text = new ArrayList<String>();
-  StringBuilder text2 = new StringBuilder();
+  ArrayList<String> text = new ArrayList<String>();//list of words
+  StringBuilder text2 = new StringBuilder();//every character, no spaces
 
 
+  //introduction
     System.out.println("-----Welcome to my Frankenstein 'Book Report'-----");
     System.out.println("1) rSearch"+"\n"+"2) numWords"+"\n"+"3) avgWordLength");
     System.out.println("4) mostCommonChar"+"\n"+"5) mostCommonWord (takes a little bit of time)"+"\n"+"6) randomSummary");
@@ -32,9 +33,31 @@ public static void main(String[] args) {
     e.printStackTrace();
   }
 
-  if(result.equals("1")){
+  if(result.equals("1")){//recursive Word Search -- works (doesn't account for words with punctuation)
+    System.out.println("What word would you like to search for?");
+    Scanner tar = new Scanner(System.in);
+    String target = tar.next();
+    int index = 0;
+    int count = 0;
 
+while(true){//is it still recursive if I am using a while loop?
+    if(index >= text.size()){//if the index is greater than the size of the arraylist exit while loop to print
+      break;
+      }
+
+    else if(text.get(index).equals(target)){//if the word in the arraylist at an index is equal to the target value increase count and the index by one
+      count++;
+      index++;
+      }
+
+    else{//if the word in the arraylist at an index does not equal the target value, move onto the next word
+      index++;
+      }
     }
+    //print outside of while loop
+    System.out.println("The string: "+"'"+target+"'"+" occurs "+count+" times");
+  }
+
   if(result.equals("2")){//number of words -- works
     System.out.println("The number of words is:"+text.size());
     }
@@ -90,17 +113,27 @@ public static void main(String[] args) {
        System.out.println("The most common word is: '"+word+"' and it occurs: "+amount+" times");
     }
    if(result.equals("6")){
+
+     System.out.println("How many words should the 'summary' be?");
       StringBuilder random = new StringBuilder();
-      Scanner input2 = new Scanner(System.in);
-      String result2 = input2.next();
-      int x = Integer.parseInt(result2);
+      Scanner input3 = new Scanner(System.in);
+      String result3 = input3.next();
+      int x = Integer.parseInt(result3);
+      int index = 0;
 
-      for(int i=0; i==x-1; i++){
+    while(true){
       Collections.shuffle(text);
-        random.append(text.get(0)+" ");//is not appending
-      }
+        if(index >= x){//if the index is greater than the size of the arraylist exit while loop to print
+          break;
+          }
 
-      System.out.println("Random Summary:"+random);
+        else if(text.get(index) != null){
+          random.append(text.get(index)+" ");
+          index++;
+        }
+      }
+    //print outside of while loop
+      System.out.println("Random Summary: "+random);
     }
   }
 }

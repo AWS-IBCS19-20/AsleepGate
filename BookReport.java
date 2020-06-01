@@ -3,6 +3,7 @@ import java.io.*;
 
 class BookReport{
 
+
 public static void main(String[] args) {
 
   ArrayList<String> text = new ArrayList<String>();
@@ -15,14 +16,15 @@ public static void main(String[] args) {
 
     Scanner input = new Scanner (System.in); //creation of scanner
     String result = input.next();//tells scanner what to do
+
   try {
     File data = new File("Frankenstein.txt");
-    Scanner fr = new Scanner(data);
-    Scanner fr2 = new Scanner(data);
+    Scanner fr = new Scanner(data);// data for ArrayList
+    Scanner fr2 = new Scanner(data);//data for StringBuilder
 
     while(fr.hasNext()){
       text.add(fr.next());//Arraylist
-      text2.append(fr2.next());//Stringbuilder 
+      text2.append(fr2.next());//Stringbuilder
       }
     }
 
@@ -43,19 +45,27 @@ public static void main(String[] args) {
     System.out.println("The average word length is:"+avg);
     }
 
-/*  if(result.equals("4")){//most common character -- Doesn't work
-   int most = 0;
-   int diff;
-   char maxChar = '\0';
-   for(char c = 'a'; c <= 'z'; c++) {
-         diff = text2.length() - text.toString().replace("" + c, "").length();
-        if(diff > most) {
-            maxChar = c;
-            most = diff;
-        }
-      }
-      System.out.println(maxChar);
-    }*/
+  if(result.equals("4")){//most common character -- works
+
+      int count = 0;
+      int amount = 0;
+      char letter = '\0';
+
+      for(char c = 'a'; c<='z'; c++){
+           count = 1;
+
+           for(int j = c+1; j < text2.length(); j++){//count each word in the file
+               if(text2.charAt(c)==(text2.charAt(j))){
+                   count++;
+               }
+           }
+           if(count > amount){//if the amount is less than count then store value of count in maxCount
+               amount = count;
+               letter = text2.charAt(c);
+           }
+       }
+       System.out.println("The most common letter is: '"+letter+"' and it occurs: "+amount+" times");
+    }
 
     if(result.equals("5")){//most common word --works
 
@@ -79,7 +89,7 @@ public static void main(String[] args) {
        }
        System.out.println("The most common word is: '"+word+"' and it occurs: "+amount+" times");
     }
-  /*  if(result.equals("6")){
+   if(result.equals("6")){
       StringBuilder random = new StringBuilder();
       Scanner input2 = new Scanner(System.in);
       String result2 = input2.next();
@@ -87,10 +97,10 @@ public static void main(String[] args) {
 
       for(int i=0; i==x-1; i++){
       Collections.shuffle(text);
-        random.append(text(3)+" ");//is not appending
+        random.append(text.get(0)+" ");//is not appending
       }
 
       System.out.println("Random Summary:"+random);
-    }*/
+    }
   }
 }

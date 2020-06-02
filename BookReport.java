@@ -26,7 +26,39 @@ public static void main(String[] args) {
     while(fr.hasNext()){
       text.add(fr.next());//Arraylist
       text2.append(fr2.next());//Stringbuilder
-      }
+        }
+    for(int i = 0; i<text2.length(); i++){//takes out punctuation from stringbuilder so it isn't considered as part of the length
+      if(text2.charAt(i)=='.'){
+        text2.setCharAt(i,'\0');
+        }
+      else if(text2.charAt(i)==','){
+        text2.setCharAt(i,'\0');
+        }
+        else if(text2.charAt(i)==':'){
+          text2.setCharAt(i,'\0');
+          }
+          else if(text2.charAt(i)==';'){
+            text2.setCharAt(i,'\0');
+            }
+            else if(text2.charAt(i)=='?'){
+              text2.setCharAt(i,'\0');
+              }
+              else if(text2.charAt(i)=='!'){
+                text2.setCharAt(i,'\0');
+                }
+                else if(text2.charAt(i)=='-'){
+                  text2.setCharAt(i,'\0');
+                  }
+                  else if(text2.charAt(i)=='_'){
+                    text2.setCharAt(i,'\0');
+                    }
+                    else if(text2.charAt(i)=='('){
+                      text2.setCharAt(i,'\0');
+                      }
+                      else if(text2.charAt(i)==')'){
+                        text2.setCharAt(i,'\0');
+                        }
+                  }
     }
 
   catch (FileNotFoundException e) {
@@ -48,7 +80,52 @@ while(true){//is it still recursive if I am using a while loop?
     else if(text.get(index).equals(target)){//if the word in the arraylist at an index is equal to the target value increase count and the index by one
       count++;
       index++;
+      }//do I have to do this for every form of punctuation?
+      //if a word is next to any form of punctuation it still counts the word
+    else if(text.get(index).equals(target+".")){
+      count++;
+      index++;
       }
+      else if(text.get(index).equals(target+",")){
+        count++;
+        index++;
+        }
+        else if(text.get(index).equals(target+":")){
+          count++;
+          index++;
+          }
+          else if(text.get(index).equals(target+";")){
+            count++;
+            index++;
+            }
+              else if(text.get(index).equals(target+"?")){
+                count++;
+                index++;
+                }
+                  else if(text.get(index).equals(target+"!")){
+                    count++;
+                    index++;
+                    }
+                    else if(text.get(index).equals(target+"-")){
+                      count++;
+                      index++;
+                      }
+                      else if(text.get(index).equals("_"+target)){//underscore could be on either side in fornt or behind the word
+                        count++;
+                        index++;
+                          }
+                            else if(text.get(index).equals(target+"_")){
+                              count++;
+                              index++;
+                              }
+                                else if(text.get(index).equals("("+target)){
+                                  count++;
+                                  index++;
+                                  }
+                                  else if(text.get(index).equals(target+")")){
+                                    count++;
+                                    index++;
+                                    }
 
     else{//if the word in the arraylist at an index does not equal the target value, move onto the next word
       index++;

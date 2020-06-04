@@ -26,6 +26,8 @@ public static void main(String[] args) {
     while(fr.hasNext()){
       text.add(fr.next());//Arraylist
       text2.append(fr2.next());//Stringbuilder
+
+
         }
     for(int i = 0; i<text2.length(); i++){//takes out punctuation from stringbuilder so it isn't considered as part of the length
       if(text2.charAt(i)=='.'){
@@ -59,6 +61,7 @@ public static void main(String[] args) {
                         text2.setCharAt(i,'\0');
                         }
                   }
+
     }
 
   catch (FileNotFoundException e) {
@@ -80,8 +83,8 @@ while(true){//is it still recursive if I am using a while loop?
     else if(text.get(index).equals(target)){//if the word in the arraylist at an index is equal to the target value increase count and the index by one
       count++;
       index++;
-      }//do I have to do this for every form of punctuation?
-      //if a word is next to any form of punctuation it still counts the word
+      }
+      //if a word is next to any form of punctuation it still counts the word, is there a better way to do this?
     else if(text.get(index).equals(target+".")){
       count++;
       index++;
@@ -189,6 +192,7 @@ while(true){//is it still recursive if I am using a while loop?
        }
        System.out.println("The most common word is: '"+word+"' and it occurs: "+amount+" times");
     }
+
    if(result.equals("6")){
 
      System.out.println("How many words should the 'summary' be?");

@@ -168,10 +168,10 @@ while(true){
            }
            if(count > amount){//if the amount is less than count then store value of count in amount
                amount = count;
-               letter = text2.charAt(c);
+               letter = text2.charAt(c);//the most common letter
            }
        }
-       System.out.println("The most common letter is: '"+letter+"' and it occurs: "+amount+" times"+count);
+       System.out.println("The most common letter is: '"+letter+"' and it occurs: "+amount+" times");
     }
 
     if(result.equals("5")){//most common word --works
@@ -191,7 +191,7 @@ while(true){
 
            if(count > amount){//if the amount is less than count then store value of count in amount
                amount = count;
-               word = text.get(i);
+               word = text.get(i);//the most common word
            }
        }
        System.out.println("The most common word is: '"+word+"' and it occurs: "+amount+" times");
@@ -202,17 +202,17 @@ while(true){
      System.out.println("How many words should the 'summary' be?");
       StringBuilder random = new StringBuilder();
       Scanner input3 = new Scanner(System.in);
-      String result3 = input3.next();
-      int x = Integer.parseInt(result3);
+      String result3 = input3.next();//new input for how many words long the summary should be
+      int x = Integer.parseInt(result3);//turning the input into an integer
       int index = 0;
 
     while(true){
-      Collections.shuffle(text);
+      Collections.shuffle(text);//shuffle the array list to make it random
         if(index >= x){//if the index is greater than the size of the arraylist exit while loop to print
           break;
           }
 
-        else if(text.get(index) != null){
+        else{
           random.append(text.get(index)+" ");
           index++;
         }

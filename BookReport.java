@@ -60,6 +60,9 @@ public static void main(String[] args) {
                       else if(text2.charAt(i)==')'){
                         text2.setCharAt(i,'\0');
                         }
+                        else if(text2.charAt(i)=='\"'){
+                          text2.setCharAt(i,'\0');
+                        }
                   }
 
     }
@@ -68,14 +71,14 @@ public static void main(String[] args) {
     e.printStackTrace();
   }
 
-  if(result.equals("1")){//recursive Word Search -- works (doesn't account for words with punctuation)
+  if(result.equals("1")){//recursive Word Search -- works
     System.out.println("What word would you like to search for?");
-    Scanner tar = new Scanner(System.in);
+    Scanner tar = new Scanner(System.in);//target is the word being searched for
     String target = tar.next();
     int index = 0;
     int count = 0;
 
-while(true){//is it still recursive if I am using a while loop?
+while(true){
     if(index >= text.size()){//if the index is greater than the size of the arraylist exit while loop to print
       break;
       }
@@ -121,7 +124,7 @@ while(true){//is it still recursive if I am using a while loop?
                               count++;
                               index++;
                               }
-                                else if(text.get(index).equals("("+target)){
+                                else if(text.get(index).equals("("+target)){//parentheses could be on either side of a word
                                   count++;
                                   index++;
                                   }
@@ -129,6 +132,7 @@ while(true){//is it still recursive if I am using a while loop?
                                     count++;
                                     index++;
                                     }
+
 
     else{//if the word in the arraylist at an index does not equal the target value, move onto the next word
       index++;
@@ -139,12 +143,12 @@ while(true){//is it still recursive if I am using a while loop?
   }
 
   if(result.equals("2")){//number of words -- works
-    System.out.println("The number of words is:"+text.size());
+    System.out.println("The number of words is:"+text.size());//the size of the text is the amount of words in the arraylist
     }
 
   if(result.equals("3")){//avg length of a word -- works
     int avg;
-    avg = text2.length()/text.size();
+    avg = text2.length()/text.size();//the number of characters in a text divided by the number of words
     System.out.println("The average word length is:"+avg);
     }
 
@@ -154,7 +158,7 @@ while(true){//is it still recursive if I am using a while loop?
       int amount = 0;
       char letter = '\0';
 
-      for(char c = 'a'; c<='z'; c++){
+      for(char c = 'a'; c<='z'; c++){// from a-z
            count = 1;
 
            for(int j = c+1; j < text2.length(); j++){//count each word in the file
@@ -167,7 +171,7 @@ while(true){//is it still recursive if I am using a while loop?
                letter = text2.charAt(c);
            }
        }
-       System.out.println("The most common letter is: '"+letter+"' and it occurs: "+amount+" times");
+       System.out.println("The most common letter is: '"+letter+"' and it occurs: "+amount+" times"+count);
     }
 
     if(result.equals("5")){//most common word --works
@@ -185,7 +189,7 @@ while(true){//is it still recursive if I am using a while loop?
                }
            }
 
-           if(count > amount){//if the amount is less than count then store value of count in maxCount
+           if(count > amount){//if the amount is less than count then store value of count in amount
                amount = count;
                word = text.get(i);
            }
